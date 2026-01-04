@@ -14,7 +14,9 @@ const WHOOP_TOKEN_URL = 'https://api.prod.whoop.com/oauth/oauth2/token';
 
 const WHOOP_CLIENT_ID = process.env.WHOOP_CLIENT_ID;
 const WHOOP_CLIENT_SECRET = process.env.WHOOP_CLIENT_SECRET;
-const WHOOP_REDIRECT_URI = 'http://localhost:3000/api/auth/whoop/callback';
+// Use BACKEND_URL env var for production, fallback to localhost for dev
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3000';
+const WHOOP_REDIRECT_URI = `${BACKEND_URL}/api/auth/whoop/callback`;
 
 /**
  * Whoop Service - Fetches recovery and health metrics from Whoop API

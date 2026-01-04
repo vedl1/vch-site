@@ -16,8 +16,9 @@ const STRAVA_TOKEN_URL = 'https://www.strava.com/oauth/token';
 const STRAVA_CLIENT_ID = parseInt(process.env.STRAVA_CLIENT_ID, 10);
 const STRAVA_CLIENT_SECRET = process.env.STRAVA_CLIENT_SECRET;
 
-// Fixed redirect URI - must match exactly what's in Strava Dashboard
-const STRAVA_REDIRECT_URI = 'http://localhost:3000/api/auth/strava/callback';
+// Use BACKEND_URL env var for production, fallback to localhost for dev
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3000';
+const STRAVA_REDIRECT_URI = `${BACKEND_URL}/api/auth/strava/callback`;
 
 /**
  * Strava Service - Handles OAuth and fetches run activities
