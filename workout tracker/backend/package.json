@@ -1,0 +1,23 @@
+{
+  "name": "fitness-tracker-backend",
+  "version": "1.0.0",
+  "description": "Express backend for fitness tracking app with Supabase, Strava, and Whoop integration",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node src/seeders/smartSeeder.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "cors": "^2.8.5",
+    "csv-parse": "^5.5.3",
+    "dotenv": "^16.3.1",
+    "expo": "^54.0.30",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
