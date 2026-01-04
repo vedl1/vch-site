@@ -1,12 +1,20 @@
 import { DayData, ChecklistItem } from '../types';
 import { Platform } from 'react-native';
 
-// Use your machine's IP for iOS Simulator, localhost for web
-const getApiUrl = () => {
+// API URL configuration
+// Uses EXPO_PUBLIC_API_URL env var in production, falls back to localhost for dev
+const getApiUrl = (): string => {
+  // Check for environment variable first (set in .env or EAS)
+  const envUrl = process.env.EXPO_PUBLIC_API_URL;
+  if (envUrl) {
+    return envUrl;
+  }
+  
+  // Fallback for local development
   if (Platform.OS === 'web') {
     return 'http://localhost:3000/api';
   }
-  // For iOS Simulator and Android Emulator
+  // For iOS Simulator and Android Emulator - use your machine's IP
   return 'http://192.168.1.100:3000/api';
 };
 
